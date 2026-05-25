@@ -1,0 +1,107 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "custom/gamemode",
+        "custom/gpu",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}",
+        "on-click": "activate",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": " 󰈹 $1",
+            "(.*) — Visual Studio Code": " 󰨞 $1",
+            "(.*) — Steam": " 󰓓 $1"
+        },
+        "max-length": 60
+    },
+
+    "custom/gamemode": {
+        "exec": "if gamemoderun true 2>/dev/null; then echo ' 󰝥 '; else echo ''; fi",
+        "interval": 5,
+        "return-type": "json",
+        "signal": 10
+    },
+
+    "custom/gpu": {
+        "exec": "echo ' 󰢮 '$(nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits 2>/dev/null | awk -F', ' '{printf \"%d%% %d°C\", $1, $2}')",
+        "interval": 5,
+        "return-type": "json",
+        "signal": 11
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 5
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 10
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " 󰝟 ",
+        "format-icons": {
+            "default": [" 󰕿", " 󰖀", " 󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "format-wifi": " 󰤨 ",
+        "format-ethernet": " 󰀂 ",
+        "format-disconnected": " 󰤭 ",
+        "interval": 30,
+        "tooltip": true
+    },
+
+    "battery": {
+        "format": " {icon} {capacity}%",
+        "format-icons": [" 󰂎", " 󰁺", " 󰁻", " 󰁼", " 󰁽", " 󰁾", " 󰁿", " 󰂀", " 󰂁", " 󰂂", " 󰁹"],
+        "interval": 30,
+        "tooltip": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M 󰃭 %d/%m}",
+        "interval": 30,
+        "tooltip-format": "{:%A, %d de %B de %Y}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6
+    }
+}

@@ -1,0 +1,6 @@
+# Ignorar backups, thumbnails, etc
+*~
+*.swp
+*.swo
+wallpapers/*
+!wallpapers/.gitkeep

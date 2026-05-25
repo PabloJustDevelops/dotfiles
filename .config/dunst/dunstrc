@@ -1,0 +1,75 @@
+# =============================================================================
+#  Dunst — Notificaciones minimal (Catppuccin Mocha)
+# =============================================================================
+
+[global]
+    monitor = 0
+    follow = mouse
+    width = 360
+    height = 300
+    origin = top-right
+    offset = 12x48
+    scale = 0
+    notification_limit = 8
+    progress_bar = true
+    progress_bar_height = 6
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 12
+    text_icon_padding = 8
+    frame_width = 2
+    frame_color = "#cba6f7"
+    gap_size = 6
+    corner_radius = 8
+    sort = yes
+    idle_threshold = 120
+    font = "JetBrainsMono Nerd Font 11"
+    line_height = 0
+    markup = full
+    format = "<span font_desc='JetBrainsMono Nerd Font 10' color='#cba6f7'>%a</span>\n<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/48x48/status/
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/rofi -dmenu -p dunst
+    browser = /usr/bin/firefox
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#313244"
+    foreground = "#a6adc8"
+    timeout = 5
+    highlight = "#cba6f7"
+
+[urgency_normal]
+    background = "#313244"
+    foreground = "#cdd6f4"
+    timeout = 8
+    highlight = "#89b4fa"
+
+[urgency_critical]
+    background = "#313244"
+    foreground = "#f38ba8"
+    timeout = 0
+    highlight = "#f38ba8"
+    fullscreen = delay

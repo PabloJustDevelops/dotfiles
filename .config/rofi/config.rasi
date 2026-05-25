@@ -1,0 +1,108 @@
+/* =============================================================================
+ *  Rofi — Catppuccin Mocha style
+ *  Basado en adi1090x + JaKooLit
+ * ============================================================================= */
+
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Windows";
+    drun-display-format: "{name}";
+    window-format: "{w} · {c} · {t}";
+    font: "JetBrainsMono Nerd Font 12";
+    terminal: "kitty";
+    kb-row-tab: "Tab";
+}
+
+* {
+    background:     rgba(30, 30, 46, 0.95);
+    background-alt: #313244;
+    foreground:     #cdd6f4;
+    selected:       #cba6f7;
+    active:         #a6e3a1;
+    urgent:         #f38ba8;
+    border-color:   #45475a;
+    spacing:        4;
+}
+
+window {
+    width: 600px;
+    border: 2px;
+    border-color: @selected;
+    border-radius: 12px;
+    background-color: @background;
+    padding: 8px;
+}
+
+inputbar {
+    background-color: @background-alt;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 0 0 8px 0;
+    text-color: @foreground;
+    children: [entry, case-indicator];
+}
+
+entry {
+    placeholder: "Buscar…";
+    placeholder-color: #585b70;
+    text-color: @foreground;
+}
+
+case-indicator {
+    text-color: @selected;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    spacing: 4;
+    dynamic: true;
+}
+
+element {
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-color: @foreground;
+}
+
+element normal.normal {
+    background-color: transparent;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: #1e1e2e;
+}
+
+element-icon {
+    size: 24px;
+    padding: 0 8px 0 0;
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+button {
+    background-color: @background-alt;
+    border-radius: 8px;
+    text-color: @foreground;
+    padding: 6px;
+}
+
+button selected {
+    background-color: @selected;
+    text-color: #1e1e2e;
+}
+
+message {
+    background-color: @background-alt;
+    border-radius: 8px;
+    padding: 4px;
+    margin: 4px 0 0 0;
+}

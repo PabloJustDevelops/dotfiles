@@ -1,0 +1,110 @@
+/* =============================================================================
+ *  Waybar style — Catppuccin Mocha minimal
+ * ============================================================================= */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.85);
+    color: #cdd6f4;
+    border-bottom: 1px solid rgba(69, 71, 90, 0.5);
+}
+
+/* ─── Workspaces ────────────────────────────────────────────────────── */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: #585b70;
+    background: transparent;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    border-bottom: 2px solid #cba6f7;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    border-bottom: 2px solid #f38ba8;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: rgba(69, 71, 90, 0.3);
+    text-shadow: none;
+}
+
+/* ─── Window ──────────────────────────────────────────────────────────── */
+#window {
+    color: #a6adc8;
+    padding: 0 8px;
+}
+
+/* ─── Modules ──────────────────────────────────────────────────────────── */
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#clock,
+#tray,
+#custom-gamemode,
+#custom-gpu {
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+#custom-gamemode {
+    color: #a6e3a1;
+}
+
+#custom-gpu {
+    color: #89b4fa;
+}
+
+#cpu {
+    color: #94e2d5;
+}
+
+#memory {
+    color: #74c7ec;
+}
+
+#pulseaudio {
+    color: #fab387;
+}
+
+#network {
+    color: #a6e3a1;
+}
+
+#battery {
+    color: #cba6f7;
+}
+
+#clock {
+    color: #b4befe;
+}
+
+#tray {
+    padding: 0 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+}

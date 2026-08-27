@@ -1,98 +1,67 @@
-#  dotfiles — Hyprland (gaming + dev + minimal)
+# dotfiles — River (gaming + desarrollo + minimalista)
 
-Configuración personal de Hyprland para **CachyOS / Arch Linux** con **NVIDIA RTX 3060** en portátil.
+Configuración para **River**, pensada para CachyOS / Arch Linux, con Waybar, Rofi, Kitty, Dunst, PipeWire y herramientas de desarrollo.
 
-Basado en ideas de JaKooLit, CachyOS, binnewbs y la comunidad de Hyprland.
+## Estructura
 
-##  Estructura
-
-```
+```text
 .config/
-├── hypr/
-│   ├── hyprland.conf      # Principal — sourcea los demás
-│   ├── env.conf           # NVIDIA, Wayland, Qt/GTK
-│   ├── input.conf         # Teclado (ES), touchpad
-│   ├── keybinds.conf      # Atajos completos
-│   ├── monitor.conf       # Monitores (portátil + dock)
-│   ├── windowrules.conf   # Reglas para juegos, floats, etc
-│   ├── animations.conf    # Animaciones ligeras
-│   └── user.conf          # TUS cambios personales (no se toca)
+├── river/
+│   ├── init       # Configuración principal y atajos
+│   ├── autostart  # Variables Wayland, wallpaper y polkit
+│   └── powermenu  # Menú de apagado/reinicio/suspensión
 ├── waybar/
-│   ├── config.jsonc       # Barra con GPU, RAM, vol, batería
-│   └── style.css          # Catppuccin Mocha
+│   ├── config.jsonc
+│   └── style.css
 ├── rofi/
-│   └── config.rasi        # App launcher + power menu
 ├── dunst/
-│   └── dunstrc            # Notificaciones minimal
 └── kitty/
-    └── kitty.conf         # Terminal con tema Catppuccin
 scripts/
-├── gpu-info.sh            # Info GPU para waybar
-└── rofi-power-menu.sh     # Apagar / reiniciar / suspender
 ```
 
-##   Atajos principales
+River es un compositor de Wayland basado en etiquetas (tags), no en workspaces de River. La configuración usa nueve tags equivalentes a los workspaces 1–9.
+
+## Atajos principales
 
 | Tecla | Acción |
 |---|---|
-| `SUPER + Enter` | Terminal (Kitty) |
-| `SUPER + D` | App launcher (Rofi) |
+| `SUPER + Enter` | Abrir Kitty |
+| `SUPER + D` | Lanzador Rofi |
 | `SUPER + Q` | Cerrar ventana |
-| `SUPER + 1-9` | Cambiar workspace |
-| `SUPER + SHIFT + 1-9` | Mover ventana a workspace |
-| `SUPER + F` | Fullscreen |
-| `SUPER + V` | Toggle floating |
-| `SUPER + S` | Scratchpad |
-| `SUPER + CTRL + flechas` | Redimensionar ventana |
-| `Print` | Screenshot (área) |
-| `SUPER + Escape` | Power menu |
+| `SUPER + 1-9` | Cambiar tag |
+| `SUPER + SHIFT + 1-9` | Mover ventana al tag |
+| `SUPER + H/J/K/L` | Cambiar foco |
+| `SUPER + SHIFT + H/J/K/L` | Mover ventana |
+| `SUPER + F` | Pantalla completa |
+| `SUPER + V` | Alternar flotante |
+| `SUPER + R` | Modo redimensionar |
+| `SUPER + Escape` | Menú de energía |
+| `Print` | Captura de área |
+| `SUPER + SHIFT + E` | Salir de River |
 
-##   Gaming
-
-```bash
-# Ejecutar juego con GPU dedicada (si tienes Optimus híbrido)
-prime-run steam
-
-# Overlay de rendimiento (FPS, temps, uso)
-mangohud %command%        # en opciones de lanzamiento de Steam
-gamemoderun %command%     # optimiza CPU/GPU
-
-# Monitorizar GPU
-btop                      # terminal
-watch -n1 nvidia-smi      # clásico
-```
-
-##   Instalación
+## Instalación en Arch/CachyOS
 
 ```bash
-# Clonar
-git clone https://github.com/TU_USUARIO/dotfiles.git ~/dotfiles
+git clone https://github.com/PabloJustDevelops/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-
-# Ejecutar (instala paquetes + configura)
 chmod +x install.sh
 ./install.sh
-
-# O manual: solo los dotfiles
-stow -t ~ .config/hypr .config/waybar .config/rofi .config/dunst .config/kitty scripts
 ```
 
-Después reinicias sesión y seleccionas **Hyprland**.
+El instalador pide confirmación, instala River y las herramientas auxiliares mediante `pacman`, y enlaza `.config` con GNU Stow cuando está disponible. Después cierra sesión y selecciona **River** en tu gestor de sesiones.
 
-##   Personalizar sin romper nada
+## Wallpaper
 
-Todos tus cambios van en `~/.config/hypr/user.conf`:
+Para usar un wallpaper con `swww`, crea `~/.config/river/wallpaper` con la ruta absoluta de una imagen. El autostart solo la usa si el archivo existe.
 
-```conf
-# Ejemplo: cambiar atajo de terminal
-bind = SUPER, Return, exec, wezterm
-```
+## NVIDIA
 
-Ese archivo se sourcea al final y nunca lo toca el instalador.
+River funciona con Wayland, pero la configuración específica de NVIDIA depende del kernel, driver y equipo. El instalador no fuerza paquetes NVIDIA ni variables experimentales: configúralos según tu hardware para evitar romper otros compositores.
 
-##   Créditos
+## Personalización
 
-- [JaKooLit / Arch-Hyprland](https://github.com/JaKooLit/Arch-Hyprland)
-- [CachyOS](https://cachyos.org)
-- [binnewbs / arch-hyprland](https://github.com/binnewbs/arch-hyprland)
-- [Catppuccin](https://github.com/catppuccin)
+Edita `~/.config/river/init` para atajos y reglas. Puedes cambiar el terminal y lanzador al principio del archivo. Edita `~/.config/river/autostart` para servicios de sesión.
+
+## Licencia
+
+Configuración personal. Adapta los paquetes y comandos a tu hardware y distribución.

@@ -7,14 +7,28 @@ export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
-# Start a wallpaper only when one is configured in this repository.
-if command -v swww >/dev/null 2>&1 && [ -f "$HOME/.config/river/wallpaper" ]; then
-    swww img "$(cat "$HOME/.config/river/wallpaper")" --transition-type none
+# Optional monitor profiles.
+if command -v kanshi >/dev/null 2>&1; then
+    kanshi &
 fi
 
-# Start the polkit agent if installed.
-if command -v /usr/lib/polkit-kde-authentication-agent-1 >/dev/null 2>&1; then
+# Animated wallpaper. Create ~/.config/river/wallpaper with an image path.
+if command -v swww >/dev/null 2>&1 && [ -f "$HOME/.config/river/wallpaper" ]; then
+    wallpaper=$(cat "$HOME/.config/river/wallpaper")
+    swww img "$wallpaper" --transition-type wipe --transition-duration 1
+fi
+
+# Lock after inactivity when the optional tools are installed.
+if command -v swayidle >/dev/null 2>&1 && command -v swaylock >/dev/null 2>&1; then
+    swayidle -w \
+        timeout 600 'swaylock -f -c 1e1e2e' \
+        timeout 900 'systemctl suspend' \
+        before-sleep 'swaylock -f -c 1e1e2e' &
+fi
+
+# Polkit agent, if available.
+if command -v /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 >/dev/null 2>&1; then
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+elif command -v /usr/lib/polkit-kde-authentication-agent-1 >/dev/null 2>&1; then
     /usr/lib/polkit-kde-authentication-agent-1 &
-elif command -v lxqt-policykit-agent >/dev/null 2>&1; then
-    lxqt-policykit-agent &
 fi

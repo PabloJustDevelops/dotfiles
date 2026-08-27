@@ -1,0 +1,9 @@
+profile laptop {
+    output eDP-1 enable scale 1
+}
+
+# Uncomment and replace DP-1 with the output name reported by `kanshictl list`.
+# profile laptop-dock {
+#     output eDP-1 enable scale 1 position 0,0
+#     output DP-1 enable mode 1920x1080@60Hz position 1920,0
+# }

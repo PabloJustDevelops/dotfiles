@@ -27,6 +27,10 @@ chmod +x install.sh
 
 El instalador está pensado para CachyOS. Pide confirmación, instala los paquetes mediante `pacman`, enlaza `.config` con GNU Stow y habilita PipeWire. Después cierra sesión y selecciona River en el gestor de sesiones.
 
+## Validación posterior
+
+Consulta [TESTING.md](TESTING.md) para instalar CachyOS, probar River de forma segura y encargar a un agente una auditoría no destructiva de la sesión.
+
 ## NVIDIA RTX 3060 Mobile / Optimus
 
 Si se detecta una GPU NVIDIA, el instalador instala `chwd` y ejecuta:

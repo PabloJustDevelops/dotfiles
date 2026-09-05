@@ -1,0 +1,41 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+format = """[](fg:#2E3440)$os[](fg:#2E3440 bg:#4C566A)$directory$git_branch$git_status[](fg:#4C566A bg:#3B4252)$cmd_duration$time[](fg:#3B4252) $character"""
+
+[character]
+success_symbol = "[❯](bold #88C0D0)"
+error_symbol = "[❯](bold #BF616A)"
+vimcmd_symbol = "[❮](bold #88C0D0)"
+
+[os]
+disabled = false
+style = "bg:#2E3440 fg:#ECEFF4"
+format = "[ $symbol ](bg:#2E3440 fg:#ECEFF4)"
+[os.symbols]
+CachyOS = "󰣇 "
+Arch = "󰣇 "
+
+[directory]
+style = "bg:#4C566A fg:#ECEFF4"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[git_branch]
+style = "bg:#3B4252 fg:#ECEFF4"
+format = "[ $symbol$branch ]($style)"
+symbol = "󰘬 "
+
+[git_status]
+style = "bg:#3B4252 fg:#ECEFF4"
+format = "[$all_status$ahead_behind]($style)"
+
+[cmd_duration]
+style = "bg:#3B4252 fg:#ECEFF4"
+format = "[ $duration ]($style)"
+min_time = 2000
+
+[time]
+disabled = false
+style = "bg:#3B4252 fg:#ECEFF4"
+format = "[ $time ]($style)"
+time_format = "%R"

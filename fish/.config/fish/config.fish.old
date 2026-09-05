@@ -1,0 +1,4 @@
+source /usr/share/cachyos-fish-config/cachyos-config.fish
+
+# Starship prompt (catppuccin)
+starship init fish | source

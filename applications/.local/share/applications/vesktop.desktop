@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Vesktop
+Exec=env LIBVA_DRIVER_NAME=iHD DRI_PRIME=0 /usr/bin/vesktop --disable-gpu-sandbox --enable-features=VaapiVideoDecoder --ignore-gpu-blocklist %U
+Terminal=false
+Type=Application
+Icon=vesktop
+StartupWMClass=vesktop
+Categories=Network;
+MimeType=x-scheme-handler/discord

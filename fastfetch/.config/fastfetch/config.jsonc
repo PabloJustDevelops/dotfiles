@@ -1,0 +1,38 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty",
+    "source": "~/Imágenes/fastfetch-images/*.jpg",
+    "width": 28,
+    "height": 14,
+    "padding": { "top": 1, "left": 2, "right": 3 }
+  },
+  "display": {
+    "percent": { "type": 9 },
+    "size": { "ndigits": 1 },
+    "separator": "  ",
+    "key": { "width": 13 },
+    "color": { "keys": "#4C566A", "output": "#ECEFF4" }
+  },
+  "modules": [
+    "break",
+    { "type": "title", "color": { "user": "#88C0D0", "at": "#4C566A", "host": "#81A1C1" } },
+    { "type": "custom", "format": "\u001b[38;2;46;52;64m────────────────────────────────────\u001b[0m" },
+    { "type": "custom", "format": "\u001b[38;2;136;192;208m\u001b[1;38;2;14;12;8;48;2;136;192;208m 󰒓 SYSTEM \u001b[0m\u001b[38;2;136;192;208m\u001b[0m" },
+    { "type": "os", "key": "\u001b[38;2;129;161;193m󰣇\u001b[0m OS" },
+    { "type": "kernel", "key": "\u001b[38;2;129;161;193m󰻀\u001b[0m KERNEL", "format": "{release}" },
+    { "type": "packages", "key": "\u001b[38;2;129;161;193m󰊠\u001b[0m PACKAGES" },
+    { "type": "shell", "key": "\u001b[38;2;129;161;193m󰞷\u001b[0m SHELL" },
+    { "type": "wm", "key": "\u001b[38;2;129;161;193m󱂬\u001b[0m WM" },
+    { "type": "terminal", "key": "\u001b[38;2;129;161;193m󰆍\u001b[0m TERMINAL" },
+    "break",
+    { "type": "custom", "format": "\u001b[38;2;76;86;106m\u001b[1;38;2;14;12;8;48;2;76;86;106m 󰘚 HARDWARE \u001b[0m\u001b[38;2;76;86;106m\u001b[0m" },
+    { "type": "command", "key": "\u001b[38;2;136;192;208m󰻠\u001b[0m CPU", "shell": "/bin/sh", "text": "printf '%s (%s)' \"$(sed -n 's/^model name[[:space:]]*: //p' /proc/cpuinfo | head -1 | sed -E 's/[(](R|TM)[)]//g; s/ CPU//; s/ @.*//; s| w/.*||; s/^(Intel|AMD) //; s/^Core //; s/  +/ /g')\" \"$(nproc)\"" },
+    { "type": "gpu", "key": "\u001b[38;2;136;192;208m󰢮\u001b[0m GPU", "format": "{vendor} {name}" },
+    { "type": "memory", "key": "\u001b[38;2;136;192;208m󰍛\u001b[0m MEMORY" },
+    { "type": "disk", "key": "\u001b[38;2;136;192;208m󰋊\u001b[0m DISK", "folders": "/", "format": "{size-used} / {size-total} ({size-percentage})" },
+    { "type": "battery", "key": "\u001b[38;2;136;192;208m󰁹\u001b[0m BATTERY" },
+    "break",
+    { "type": "command", "key": " ", "shell": "/bin/sh", "text": "printf '\u001b[38;2;76;86;106m· awake %s · %s · nord\u001b[0m' \"$(uptime -p | sed -E 's/^up //; s/ ?days?,?/d/; s/ ?hours?,?/h/; s/ ?minutes?/m/')\" \"$(uname -n)\"" }
+  ]
+}

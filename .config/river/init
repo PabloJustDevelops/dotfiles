@@ -1,1 +1,0 @@
-riverctl map normal $mod C spawn 'cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy'

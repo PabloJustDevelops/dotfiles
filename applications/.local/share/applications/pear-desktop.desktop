@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pear Desktop Personal
+Exec=env LIBVA_DRIVER_NAME=iHD DRI_PRIME=0 /home/pablorg/Applications/Pear-Desktop-Personal-3.11.4.AppImage --disable-gpu-sandbox --enable-features=VaapiVideoDecoder --ignore-gpu-blocklist %U
+Terminal=false
+Type=Application
+Icon=/home/pablorg/.local/share/icons/pear-desktop.png
+StartupWMClass=io.github.py233.pear_desktop_personal
+X-AppImage-Version=3.11.4
+Comment=Pear Desktop Personal bundled with custom plugins
+Categories=AudioVideo;
